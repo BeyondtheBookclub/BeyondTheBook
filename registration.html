@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Beyond the Book</title>
+    <meta name="description" content="Register for Beyond the Book, an immersive online reading program exploring The Great Gatsby this July. Limited to 5 students per session.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .registration-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .form-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 20px;
+        }
+        
+        .form-group {
+            flex: 1 0 calc(50% - 20px);
+            margin: 0 10px 15px;
+        }
+        
+        .form-group.full-width {
+            flex: 1 0 calc(100% - 20px);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+        }
+        
+        .form-group input.error,
+        .form-group textarea.error,
+        .form-group select.error {
+            border-color: var(--secondary-color);
+        }
+        
+        .session-options {
+            margin-top: 20px;
+        }
+        
+        .session-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .session-option:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .session-option input[type="radio"] {
+            margin-right: 15px;
+            width: auto;
+        }
+        
+        .session-option-details {
+            flex-grow: 1;
+        }
+        
+        .session-option h4 {
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+        }
+        
+        .session-option p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .session-availability {
+            margin-left: 15px;
+            font-weight: 600;
+            color: var(--success-color);
+        }
+        
+        .session-full {
+            color: var(--secondary-color);
+        }
+        
+        .session-option.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .checkbox-group {
+            margin-top: 20px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 5px;
+            width: auto;
+        }
+        
+        .charity-notice {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .charity-notice img {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+        
+        .required-field::after {
+            content: '*';
+            color: var(--secondary-color);
+            margin-left: 3px;
+        }
+        
+        .form-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 1 0 calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Beyond the <span>Book</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html#featured-book">Featured Book</a></li>
+                    <li><a href="index.html#program">Program</a></li>
+                    <li><a href="index.html#features">Benefits</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#charity">Our Cause</a></li>
+                    <li><a href="index.html#register">Register</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Form Section -->
+    <section class="registration-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration Form</h2>
+                <p>Join our "Beyond the Book" program exploring The Great Gatsby this July</p>
+            </div>
+            
+            <div class="registration-form-container">
+                <div class="charity-notice">
+                    <img src="images/room_to_read_logo.png" alt="Room to Read Logo">
+                    <h3>Supporting Literacy Worldwide</h3>
+                    <p>100% of profits from the Beyond the Book program will be donated to Room to Read, supporting their mission to transform the lives of millions of children through education.</p>
+                </div>
+                
+                <form id="registrationForm">
+                    <!-- Student Information -->
+                    <div class="form-section">
+                        <h3>Student Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student_name" class="required-field">Student Name</label>
+                                <input type="text" id="student_name" name="student_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="student_age" class="required-field">Age</label>
+                                <input type="number" id="student_age" name="student_age" min="12" max="15" required>
+                                <p class="form-note">Program is designed for students aged 12-15</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student_email" class="required-field">Student Email</label>
+                                <input type="email" id="student_email" name="student_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="english_level" class="required-field">English Level</label>
+                                <select id="english_level" name="english_level" required>
+                                    <option value="">Select English Level</option>
+                                    <option value="upper-intermediate">Upper-Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                                <p class="form-note">Upper-Intermediate to Advanced level required</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Parent/Guardian Information -->
+                    <div class="form-section">
+                        <h3>Parent/Guardian Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="parent_name" class="required-field">Parent/Guardian Name</label>
+                                <input type="text" id="parent_name" name="parent_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parent_email" class="required-field">Parent/Guardian Email</label>
+                                <input type="email" id="parent_email" name="parent_email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="parent_phone" class="required-field">Parent/Guardian Phone</label>
+                                <input type="tel" id="parent_phone" name="parent_phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country" class="required-field">Country</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="timezone" class="required-field">Time Zone</label>
+                                <input type="text" id="timezone" name="timezone" required>
+                                <p class="form-note">e.g., CEST, EST, PST</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Session Selection -->
+                    <div class="form-section">
+                        <h3>Session Selection</h3>
+                        <p>Please select your preferred session option. Each session is limited to 5 students maximum.</p>
+                        
+                        <div class="session-options">
+                            <div class="session-option">
+                                <input type="radio" id="session_tue_thu" name="session_option" value="tue_thu" required>
+                                <div class="session-option-details">
+                                    <h4>Tuesday/Thursday Sessions</h4>
+                                    <p>8:30-9:30 AM CEST | July 1-31, 2025</p>
+                                </div>
+                                <span id="tue_thu_availability" class="session-availability">5 spots left</span>
+                            </div>
+                            
+                            <div class="session-option">
+                                <input type="radio" id="session_mon_wed" name="session_option" value="mon_wed" required>
+                                <div class="session-option-details">
+                                    <h4>Monday/Wednesday Sessions</h4>
+                                    <p>7:00-8:00 PM CEST | July 1-31, 2025</p>
+                                </div>
+                                <span id="mon_wed_availability" class="session-availability">5 spots left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Program Requirements -->
+                    <div class="form-section">
+                        <h3>Program Requirements</h3>
+                        <p>Please confirm that you have the following requirements for participation:</p>
+                        
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="req_book" name="req_book" required>
+                                <label for="req_book">Access to a copy of "The Great Gatsby" by F. Scott Fitzgerald</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="req_zoom" name="req_zoom" required>
+                                <label for="req_zoom">Access to Zoom with working camera and microphone</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="req_materials" name="req_materials" required>
+                                <label for="req_materials">Basic materials (notebook/journal, colored pens/pencils, post-it notes)</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="req_attendance" name="req_attendance" required>
+                                <label for="req_attendance">Commitment to attend all scheduled sessions (with 24-hour notice for any absences)</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="req_english" name="req_english" required>
+                                <label for="req_english">Confirmation of Upper-Intermediate to Advanced English level</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Consent -->
+                    <div class="form-section">
+                        <h3>Terms and Consent</h3>
+                        
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent_terms" name="consent_terms" required>
+                                <label for="consent_terms">I have read and agree to the program Terms and Conditions</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent_privacy" name="consent_privacy" required>
+                                <label for="consent_privacy">I have read and agree to the Privacy Policy</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent_camera" name="consent_camera" required>
+                                <label for="consent_camera">I understand that students must have their camera on during Zoom sessions</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent_payment" name="consent_payment" required>
+                                <label for="consent_payment">I understand that payment must be completed by June 30th, 2025</label>
+                            </div>
+                            
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent_charity" name="consent_charity" required>
+                                <label for="consent_charity">I understand that 100% of profits will be donated to Room to Read charity</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-section">
+                        <button type="submit" class="btn btn-primary">Submit Registration</button>
+                        <p class="form-note">* Required fields</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Beyond the Book</h3>
+                    <p>An immersive online reading program for young readers aged 12-15, focused on enhancing reading skills and fostering a deeper appreciation for literature.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#featured-book">Featured Book</a></li>
+                        <li><a href="index.html#program">Program Details</a></li>
+                        <li><a href="index.html#features">Benefits</a></li>
+                        <li><a href="index.html#about">About the Tutor</a></li>
+                        <li><a href="index.html#charity">Our Cause</a></li>
+                        <li><a href="index.html#register">Register</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>Registration Deadline: June 25th, 2025</li>
+                        <li>Payment Deadline: June 30th, 2025</li>
+                        <li>Program Start: July 1st, 2025</li>
+                        <li>Program End: July 31st, 2025</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beyond the Book. All Rights Reserved.</p>
+                <p><a href="admin/login.html">Admin Login</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
